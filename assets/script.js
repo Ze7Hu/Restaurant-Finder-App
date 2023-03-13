@@ -5,7 +5,7 @@ var restaurant = document.getElementById("restaurant");
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "ad8cff931fmshb4c6b778856eff5p190374jsnf64394dbe4fd",
+    "X-RapidAPI-Key": 'ca7062ca52msh72839442beb59d9p15247ajsnde42fd9c86c9',
     "X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
   },
 };
@@ -30,8 +30,8 @@ function getRestaurant() {
                 <p>Area: ${randomRestaurants[i].AddressLine3}.</p>
                 <p>Postcode: ${randomRestaurants[i].PostCode}.</p>
                 <p>Stars: ${randomRestaurants[i].RatingValue}.</p>
-        
-                
+
+    
         `;
       }
     })
@@ -41,3 +41,39 @@ btnSearch.addEventListener("click", function () {
   getRestaurant();
   console.log("clicked");
 });
+
+
+
+/*function logData() {
+	console.log(getData());
+}
+
+function getData() {
+	return {
+		liked: localStorage.getItem('liked') ? localStorage.getItem('liked') : "",
+		unliked: localStorage.getItem('unliked') ? localStorage.getItem('unliked') : ""
+	};
+}
+getData();
+
+
+function refreshPage(){
+  window.location.reload();
+} 
+<button type="submit" onClick="refreshPage()">Refresh Button</button> */
+
+
+
+
+/*const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'ca7062ca52msh72839442beb59d9p15247ajsnde42fd9c86c9',
+		'X-RapidAPI-Host': 'wyre-data.p.rapidapi.com'
+	}
+};
+
+fetch('https://wyre-data.p.rapidapi.com/restaurants/town/hambleton', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err)); */
