@@ -56,6 +56,11 @@ btnSearch.addEventListener("click", function () {
 
   console.log("clicked");
 });
+btnRefresh.addEventListener("click", function () {
+  window.location.reload();
+  getRestaurant();
+});
+
 // displaying data
 function displayList(list) {
   restaurant.innerHTML = "";
