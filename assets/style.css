@@ -1,3 +1,21 @@
-.checked {
-  color: orange;
-}
+/* @media screen and (max-width: 992px) {
+  .container > * {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: lawngreen;
+    margin-top: 10px;
+    width: auto;
+  }
+  .restaurant {
+    display: flex;
+    flex-direction: column;
+  }
+} */
+/* devices mex width 768  */
+/* @media screen and (max-width: 768px) {
+} */
+
+/* Small smartphones  */
+/* @media screen and (max-width: 576px) {
+} */
