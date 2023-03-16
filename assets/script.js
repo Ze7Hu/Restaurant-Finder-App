@@ -30,12 +30,11 @@ while (arr.length < 6) {
 function getRestaurant() {
   //The API key doesn't work any more. So I used to save in JSON file to used it.
   fetch(`../data.json`)
-    .then(response => response.json())
+    .then(function (response) {
+      return response.json();
+    })
     .then(function (data) {
-      console.log(data);
-
       for (var i = 0; i <= arr.length - 1; i++) {
-        console.log("i", arr);
         newRestaurant.push({
           BusinessName: data[arr[i]]["BusinessName"],
           Address: data[arr[i]]["AddressLine2"],
