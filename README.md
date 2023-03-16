@@ -12,7 +12,7 @@ Then when options have be assessed, they can either keep their options or click 
 
  #User Story
  
-AS A coding boot camp student who travels frequently,
+AS a student who travels frequently,
 I WANT the UI to allow me to search for restaurants in my location
 SO THAT I can easily find restaurants when I'm in an unfamiliar city.
 
