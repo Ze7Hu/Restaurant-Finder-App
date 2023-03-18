@@ -4,52 +4,90 @@ var restaurant = document.getElementById("restaurant");
 var btnRefresh = document.getElementById("btn-refresh");
 var checkbox = document.getElementById("checkbox");
 var rating = document.getElementById("rating");
-// const options = {
-//   method: "GET",
-//   headers: {
-//     "X-RapidAPI-Key": "53b514667bmsh143295e0a8819afp138c99jsn88f905128703",
-//     "X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
-//   },
-// };
+var modal = document.getElementById("modal");
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "ad8cff931fmshb4c6b778856eff5p190374jsnf64394dbe4fd",
+    "X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
+  },
+};
 
 ////////////////////////////////////////////////////////////////
 //
 var newRestaurant = [];
 // getting data from localStorage//
 function getLocalStorage() {
+  console.log("called");
   var storageData = JSON.parse(window.localStorage.getItem("data")) || [];
-  displayList(storageData);
-}
-/// using while loop to get 6 of 28 restaurants
-var arr = [];
-while (arr.length < 6) {
-  var r = Math.floor(Math.random() * 28) + 1;
-  if (arr.indexOf(r) === -1) arr.push(r);
+  console.log(storageData.length);
+  var arr = [];
+  while (arr.length < 6) {
+    console.log(Math.floor(Math.random() * storageData.length) + 1);
+    var r = Math.floor(Math.random() * storageData.length) + 1;
+    console.log("r", r);
+    if (arr.indexOf(r) === -1) arr.push(storageData[r]);
+  }
+  console.log("ar", arr);
+  displayList(arr);
 }
 
 function getRestaurant() {
   //The API key doesn't work any more. So I used to save in JSON file to used it.
-  fetch(`../data.json`)
+  fetch(
+    `https://wyre-data.p.rapidapi.com/restaurants/town/${searchInput.value}`,
+    options
+  )
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      for (var i = 0; i <= arr.length - 1; i++) {
+      if (data.length == 0)
+        return showCustomMessage("please type valid city name");
+
+      // console.log(data);
+      for (var i = 0; i <= 30; i++) {
+        console.log(data[i]);
         newRestaurant.push({
-          BusinessName: data[arr[i]]["BusinessName"],
-          Address: data[arr[i]]["AddressLine2"],
-          Area: data[arr[i]]["AddressLine3"],
-          Postcode: data[arr[i]]["PostCode"],
-          Stars: data[arr[i]]["RatingValue"],
+          BusinessName: data[i]["BusinessName"],
+          Address: data[i]["AddressLine2"],
+          Area: data[i]["AddressLine3"],
+          Postcode: data[i]["PostCode"],
+          Stars: data[i]["RatingValue"],
         });
       }
 
       // saving data to the localStorage
       window.localStorage.setItem("data", JSON.stringify(newRestaurant));
-      displayList(newRestaurant);
+
+      // gets first 6 restaurant from the list
+      let lastSixRestaurants = Array.from(
+        { length: newRestaurant.length - 25 },
+        (v, index) => newRestaurant[index]
+      );
+
+      displayList(lastSixRestaurants);
     })
     .catch(err => console.error(err));
 }
+
+function showCustomMessage(message) {
+  Toastify({
+    text: message,
+    duration: 8000, // 8 seconds
+    destination: "#",
+    newWindow: true,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "left", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right, #e34b30, #ec6661)",
+    },
+    onClick: function () {}, // Callback after click
+  }).showToast();
+}
+
 btnSearch.addEventListener("click", function () {
   getRestaurant();
 
@@ -63,6 +101,7 @@ btnRefresh.addEventListener("click", function () {
 // displaying data
 function displayList(list) {
   restaurant.innerHTML = "";
+
   list.forEach(rs => {
     restaurant.innerHTML += `
     <div id="restaurant" class=" restaurant leading-8 text-2xl w-72 bg-gray-100 rounded-sm p-4  ">
@@ -72,5 +111,6 @@ function displayList(list) {
             <p>Postcode: ${rs.Postcode}.</p>
             <p >Stars:${"⭐".repeat(rs.Stars)} </p>`;
   });
+  searchInput.value = "";
 }
 getLocalStorage();
