@@ -47,7 +47,6 @@ function getRestaurant() {
 
       // console.log(data);
       for (var i = 0; i <= 30; i++) {
-        console.log(data[i]);
         newRestaurant.push({
           BusinessName: data[i]["BusinessName"],
           Address: data[i]["AddressLine2"],
