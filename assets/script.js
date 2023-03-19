@@ -20,7 +20,9 @@ var newRestaurant = [];
 function getLocalStorage() {
   var storageData = JSON.parse(window.localStorage.getItem("data")) || [];
 
+  if (storageData.length == 0) return;
   var arr = [];
+
   while (arr.length < 6) {
     var r = Math.floor(Math.random() * storageData.length) + 1;
     console.log("r", r);
@@ -31,7 +33,7 @@ function getLocalStorage() {
 }
 
 function getRestaurant() {
-  //The API key doesn't work any more. So I used to save in JSON file to used it.
+  // fetching dta from wyre data
   fetch(
     `https://wyre-data.p.rapidapi.com/restaurants/town/${searchInput.value}`,
     options
@@ -68,7 +70,7 @@ function getRestaurant() {
     })
     .catch(err => console.error(err));
 }
-
+// displaying modal when user type wrong city or empty input
 function showCustomMessage(message) {
   Toastify({
     text: message,
