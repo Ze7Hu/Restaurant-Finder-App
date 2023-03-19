@@ -18,17 +18,15 @@ const options = {
 var newRestaurant = [];
 // getting data from localStorage//
 function getLocalStorage() {
-  console.log("called");
   var storageData = JSON.parse(window.localStorage.getItem("data")) || [];
-  console.log(storageData.length);
+
   var arr = [];
   while (arr.length < 6) {
-    console.log(Math.floor(Math.random() * storageData.length) + 1);
     var r = Math.floor(Math.random() * storageData.length) + 1;
     console.log("r", r);
     if (arr.indexOf(r) === -1) arr.push(storageData[r]);
   }
-  console.log("ar", arr);
+
   displayList(arr);
 }
 
@@ -90,8 +88,6 @@ function showCustomMessage(message) {
 
 btnSearch.addEventListener("click", function () {
   getRestaurant();
-
-  console.log("clicked");
 });
 btnRefresh.addEventListener("click", function () {
   window.location.reload();
