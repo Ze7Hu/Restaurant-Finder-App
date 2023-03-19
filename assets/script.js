@@ -25,7 +25,7 @@ function getLocalStorage() {
 
   while (arr.length < 6) {
     var r = Math.floor(Math.random() * storageData.length) + 1;
-    console.log("r", r);
+
     if (arr.indexOf(r) === -1) arr.push(storageData[r]);
   }
 

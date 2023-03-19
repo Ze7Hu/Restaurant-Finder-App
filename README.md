@@ -1,11 +1,11 @@
 # Restaurant-Finder-App
 
-<<<<<<< HEAD
+<<<<<<< HEAD<br>
 [deployed link](https://ze7hu.github.io/Restaurant-Finder-App/)<br>
 
 [github link](https://github.com/Ze7Hu/Restaurant-Finder-App)
 
-=======
+=======<br>
 As a team, we have built a user interface that locates restaurants in specific areas for tourists in new sorroundings and are looking to find restaurants around them. Restaurants names,location,contacts and star ratings will be displayed based on users's input.
 The user interfarce has been designed to have a polished looking UI using Tailwind to add both HTML and CSS to style the page.
 The UI was created in hopes of making it easier for travellers/tourists to find restaurants closest to them as well as giving them an option to save their search through local storage.
@@ -42,6 +42,4 @@ JavaScript
 Wyre data API
 
 > > > > > > > 77f412b8e106a92c9cf8e0112373503af743f5cf
-> > > > > > > ![alt first page image](/assets/images/images-1.png)
-> > > > > > > ![alt second page image](/assets/images/images-2.png)
-> > > > > > > ![alt second page image](/assets/images/images-3.png)
+> > > > > > > ![alt first page image](/assets/images/images-1.png) > > > > > > > ![alt second page image](/assets/images/images-2.png) > > > > > > > ![alt second page image](/assets/images/images-3.png)
