@@ -1,10 +1,10 @@
 # Restaurant-Finder-App
 
 <<<<<<< HEAD
+[deployed link](https://ze7hu.github.io/Restaurant-Finder-App/)<br>
 
-![alt first page image](/assets/images/images-1.png)
-![alt second page image](/assets/images/images-2.png)
-![alt second page image](/assets/images/images-3.png)
+[github link](https://github.com/Ze7Hu/Restaurant-Finder-App)
+
 =======
 As a team, we have built a user interface that locates restaurants in specific areas for tourists in new sorroundings and are looking to find restaurants around them. Restaurants names,location,contacts and star ratings will be displayed based on users's input.
 The user interfarce has been designed to have a polished looking UI using Tailwind to add both HTML and CSS to style the page.
@@ -13,7 +13,7 @@ The UI was created in hopes of making it easier for travellers/tourists to find 
 #Usage:
 
 When the user opens the UI, the Home page appears, along with search and other filters for you
-When the user enters their locations and then clicks on the search Bar, they will be navigated to Search Fragment. As soon as the user has typed in search bar, they will get 5 options of Restaurant names displayed on the page.
+When the user enters their locations and then clicks on the search Bar, they will be navigated to Search Fragment. As soon as the user has typed in search bar, they will get 6 options of Restaurant names displayed on the page.
 Then when options have be assessed, they can either keep their options or click on search for a change of options
 
 #User Story
@@ -36,9 +36,12 @@ Built with
 Front-End
 HTML
 Interactive Web
-CSS
-Resonsive Layout
-JavaScript/jQuery
+Native CSS &Tailwind css
+Responsive Layout
+JavaScript
 Wyre data API
 
 > > > > > > > 77f412b8e106a92c9cf8e0112373503af743f5cf
+> > > > > > > ![alt first page image](/assets/images/images-1.png)
+> > > > > > > ![alt second page image](/assets/images/images-2.png)
+> > > > > > > ![alt second page image](/assets/images/images-3.png)
