@@ -8,7 +8,7 @@ var modal = document.getElementById("modal");
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "ad8cff931fmshb4c6b778856eff5p190374jsnf64394dbe4fd",
+    "X-RapidAPI-Key": "8dba26f2c3msh08d11e4b72d3f70p152855jsn19013fbdf1bb",
     "X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
   },
 };
@@ -18,22 +18,22 @@ const options = {
 var newRestaurant = [];
 // getting data from localStorage//
 function getLocalStorage() {
-  console.log("called");
   var storageData = JSON.parse(window.localStorage.getItem("data")) || [];
-  console.log(storageData.length);
+
+  if (storageData.length == 0) return;
   var arr = [];
+
   while (arr.length < 6) {
-    console.log(Math.floor(Math.random() * storageData.length) + 1);
     var r = Math.floor(Math.random() * storageData.length) + 1;
-    console.log("r", r);
+
     if (arr.indexOf(r) === -1) arr.push(storageData[r]);
   }
-  console.log("ar", arr);
+
   displayList(arr);
 }
 
 function getRestaurant() {
-  //The API key doesn't work any more. So I used to save in JSON file to used it.
+  // fetching dta from wyre data
   fetch(
     `https://wyre-data.p.rapidapi.com/restaurants/town/${searchInput.value}`,
     options
@@ -47,7 +47,6 @@ function getRestaurant() {
 
       // console.log(data);
       for (var i = 0; i <= 30; i++) {
-        console.log(data[i]);
         newRestaurant.push({
           BusinessName: data[i]["BusinessName"],
           Address: data[i]["AddressLine2"],
@@ -70,7 +69,7 @@ function getRestaurant() {
     })
     .catch(err => console.error(err));
 }
-
+// displaying modal when user type wrong city or empty input
 function showCustomMessage(message) {
   Toastify({
     text: message,
@@ -90,8 +89,6 @@ function showCustomMessage(message) {
 
 btnSearch.addEventListener("click", function () {
   getRestaurant();
-
-  console.log("clicked");
 });
 btnRefresh.addEventListener("click", function () {
   window.location.reload();
