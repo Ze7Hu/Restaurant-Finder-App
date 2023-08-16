@@ -8,7 +8,7 @@ var modal = document.getElementById("modal");
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "ad8cff931fmshb4c6b778856eff5p190374jsnf64394dbe4fd",
+    "X-RapidAPI-Key": "8dba26f2c3msh08d11e4b72d3f70p152855jsn19013fbdf1bb",
     "X-RapidAPI-Host": "wyre-data.p.rapidapi.com",
   },
 };
